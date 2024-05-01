@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("MyTelegramBot")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("SimpleTGBot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e527c7f976acb625a5ccf329608f210d3f14a0a")]
-[assembly: System.Reflection.AssemblyProductAttribute("MyTelegramBot")]
-[assembly: System.Reflection.AssemblyTitleAttribute("MyTelegramBot")]
+[assembly: System.Reflection.AssemblyProductAttribute("SimpleTGBot")]
+[assembly: System.Reflection.AssemblyTitleAttribute("SimpleTGBot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.

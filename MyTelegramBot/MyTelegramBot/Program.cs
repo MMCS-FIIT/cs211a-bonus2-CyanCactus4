@@ -14,6 +14,10 @@ namespace MyTelegramBot
 
             client.Start();
 
+            Console.WriteLine("Bot is started!");
+
+            Console.WriteLine("Нажмите любую клавишу, чтобы завершить работу Телеграм Бота");
+
             Console.ReadKey();
 
         }
