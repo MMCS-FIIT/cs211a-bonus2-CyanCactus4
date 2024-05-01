@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mplM/9KGUHpiYx1xdWDBrvGvlRSpnjUZwA/UGNZYppWmm5FqJVyfvJ/bA/kvvUrnQpYxa4Xkp/01QZnMofM1Tg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Amethyst\\Desktop\\Experiments\\cs211a-bonus2-CyanCactus4\\MyTelegramBot\\MyTelegramBot\\MyTelegramBot.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Amethyst\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Amethyst\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
