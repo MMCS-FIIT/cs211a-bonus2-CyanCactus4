@@ -20,6 +20,8 @@ namespace MyTelegramBot
 
             Console.ReadKey();
 
+            client.End();
+
         }
     }
 }

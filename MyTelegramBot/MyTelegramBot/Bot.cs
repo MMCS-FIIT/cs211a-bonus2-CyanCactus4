@@ -22,15 +22,18 @@ namespace MyTelegramBotFunction
 
         public void Start() => this.client.StartReceiving(updateHandler, ErrorOptions);
 
+        public void End() => this.client.CloseAsync();
+
         public async Task updateHandler(ITelegramBotClient client, Update happening, CancellationToken token)
         {
-            long id = happening.Message.Chat.Id;
 
-            Console.WriteLine($"{id}");
+            UpdateType upd = happening.Type;
+
+            Console.WriteLine($"{upd}");
 
             try
             {
-                switch (happening.Type)
+                switch (upd)
                 {
                     case UpdateType.Message:
                         var message = happening.Message;
@@ -45,9 +48,9 @@ namespace MyTelegramBotFunction
                                     InlineKeyboardButton.WithCallbackData(text: "Нет, я чушпан...", callbackData: "end1")
                                 }
                                 });
-
-                            await client.SendAnimationAsync(id, InputFile.FromUri("https://i.pinimg.com/originals/6e/d9/4e/6ed94eeba9ab632f3366c1cc387ba8fe.gif"));
-                            await client.SendTextMessageAsync(id, text: "Хеллоу, пользователь! Я - любитель игры в города. " +
+                            long idm = happening.Message.Chat.Id;
+                            await client.SendAnimationAsync(idm, InputFile.FromUri("https://i.pinimg.com/originals/6e/d9/4e/6ed94eeba9ab632f3366c1cc387ba8fe.gif"));
+                            await client.SendTextMessageAsync(idm, text: "Хеллоу, пользователь! Я - любитель игры в города. " +
                                 "В любое время ты можешь посоревноваться со мной на знания разных уголков планеты. " +
                                 "Ты готов сейчас сыграть со мной в игру?", replyMarkup: keyboard);
 
@@ -55,17 +58,17 @@ namespace MyTelegramBotFunction
 
                         break;
                     case UpdateType.CallbackQuery:
-                        var querry = happening.CallbackQuery;
+                        var callback = happening.CallbackQuery;
 
-                        await client.AnswerCallbackQueryAsync(querry.Id);
+                        await client.AnswerCallbackQueryAsync(callback.Id);
 
-                        if (querry.Equals("start1"))
+                        if (callback.Data.Equals("start1"))
                         {
 
                         }
-                        if (querry.Equals("end1"))
+                        if (callback.Data.Equals("end1"))
                         {
-
+                            var idc = callback.Message.Chat.Id;
                             var keyboard = new InlineKeyboardMarkup(
                                 new List<InlineKeyboardButton[]>{
                                 new InlineKeyboardButton[]
@@ -74,10 +77,9 @@ namespace MyTelegramBotFunction
                                 }
                                 });
 
-                            await client.SendAnimationAsync(id, InputFile.FromUri("https://i.pinimg.com/originals/59/6c/ef/596cef7702de5ab2f1559e6fa5236dcf.gif"));
-                            await client.SendTextMessageAsync(id, text: "Очень жаль, я бы была очень рада с тобой поиграть в города... Если захочешь - возвращайся. До скорых встреч!", replyMarkup: keyboard);
+                            await client.SendAnimationAsync(idc, InputFile.FromUri("https://i.pinimg.com/originals/59/6c/ef/596cef7702de5ab2f1559e6fa5236dcf.gif"));
+                            await client.SendTextMessageAsync(idc, text: "Очень жаль, я бы была очень рада с тобой поиграть в города... Если захочешь - возвращайся. До скорых встреч!", replyMarkup: keyboard);
                         }
-
 
                         break;
                 }
